@@ -78,7 +78,7 @@ import bolts.TaskCompletionSource;
     return defaultInitialRetryDelay;
   }
 
-  private int maxRetries = DEFAULT_MAX_RETRIES;
+  private static int maxRetries = DEFAULT_MAX_RETRIES;
 
   /* package */ ParseHttpRequest.Method method;
   /* package */ String url;
@@ -92,7 +92,7 @@ import bolts.TaskCompletionSource;
     this.url = url;
   }
 
-  public void setMaxRetries(int max) {
+  public static void setMaxRetries(int max) {
     maxRetries = max;
   }
 

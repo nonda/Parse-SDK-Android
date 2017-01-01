@@ -52,6 +52,7 @@ public class Parse {
       private String applicationId;
       private String clientKey;
       private String server = "https://api.parse.com/1/";
+      private int maxRetries = 4;
       private boolean localDataStoreEnabled;
       private List<ParseNetworkInterceptor> interceptors;
 
@@ -147,6 +148,16 @@ public class Parse {
       }
 
       /**
+       * Set max retry times.
+       * @param maxRetries
+       * @return The same builder, for easy chaining.
+       */
+      public Builder setMaxRetries(int maxRetries){
+        this.maxRetries = maxRetries;
+        return this;
+      }
+
+      /**
        * Add a {@link ParseNetworkInterceptor}.
        *
        * @param interceptor The interceptor to add.
@@ -201,6 +212,7 @@ public class Parse {
     /* package for tests */ final String applicationId;
     /* package for tests */ final String clientKey;
     /* package for tests */ final String server;
+    /* package for tests */ final int maxRetries;
     /* package for tests */ final boolean localDataStoreEnabled;
     /* package for tests */ final List<ParseNetworkInterceptor> interceptors;
 
@@ -209,6 +221,7 @@ public class Parse {
       this.applicationId = builder.applicationId;
       this.clientKey = builder.clientKey;
       this.server = builder.server;
+      this.maxRetries = builder.maxRetries;
       this.localDataStoreEnabled = builder.localDataStoreEnabled;
       this.interceptors = builder.interceptors != null ?
         Collections.unmodifiableList(new ArrayList<>(builder.interceptors)) :
@@ -382,6 +395,7 @@ public class Parse {
     } catch (MalformedURLException ex) {
       throw new RuntimeException(ex);
     }
+    ParseRequest.setMaxRetries(configuration.maxRetries);
 
     Context applicationContext = configuration.context.getApplicationContext();
 

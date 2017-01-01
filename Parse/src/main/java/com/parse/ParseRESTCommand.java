@@ -188,7 +188,7 @@ import bolts.Task;
 
   // TODO(grantland): But we don't disable retries by default...
   /* package */ void enableRetrying() {
-    setMaxRetries(DEFAULT_MAX_RETRIES);
+//    setMaxRetries(DEFAULT_MAX_RETRIES);
   }
 
   private static String createUrl(String httpPath) {
