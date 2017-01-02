@@ -1,23 +1,29 @@
 # Parse SDK for Android
-[![Build Status][build-status-svg]][build-status-link]
 [![Coverage Status][coverage-status-svg]][coverage-status-link]
-[![Maven Central][maven-svg]][maven-link]
 [![License][license-svg]][license-link]
 
 
 A library that gives you access to the powerful Parse cloud platform from your Android app. 
 For more information about Parse and its features, see [the website][parse.com] and [getting started][guide].
 
-## Download
-Download [the latest JAR][latest] or define in Gradle:
+## Gradle
+Add jitpack.io in your root build.gradle at the end of repositories:
 
 ```groovy
-dependencies {
-  compile 'com.parse:parse-android:1.13.1'
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
-Snapshots of the development version are available in [Sonatype's `snapshots` repository][snap].
+Add dependency:
+```groovy
+dependencies {
+    compile 'com.github.nonda:Parse-SDK-Android:1.13.1.1'
+}
+```
 
 ## Usage
 Everything can done through the supplied gradle wrapper:
